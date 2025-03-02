@@ -7,7 +7,7 @@ import cloudinaryConnection from "./config/cloudinary.js";
 import cors from "cors";
 import fileUpload from "express-fileupload";
 import { app, server, io } from "./config/socket.js";
-
+import path from 'path'
 app.use(
   cors({
     origin: ["http://localhost:5173"],
@@ -26,6 +26,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 const port = process.env.PORT || 8080;
+const __dir = path.resolve();
 
 // api routes
 import authRoutes from "./routes/auth.routes.js";
