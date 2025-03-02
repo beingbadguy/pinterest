@@ -1,13 +1,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
+import path from "path";
 import cookieParser from "cookie-parser";
 import dbConnect from "./config/dbConnection.js";
 import cloudinaryConnection from "./config/cloudinary.js";
 import cors from "cors";
 import fileUpload from "express-fileupload";
 import { app, server, io } from "./config/socket.js";
-import path from 'path'
 app.use(
   cors({
     origin: ["http://localhost:5173"],
@@ -26,7 +26,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 const port = process.env.PORT || 8080;
-const __dir = path.resolve();
+const __dirname = path.resolve();
 
 // api routes
 import authRoutes from "./routes/auth.routes.js";
@@ -47,7 +47,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
   });
 }
-
 // server starts from here
 server.listen(port, () => {
   console.log(`Server is listening on PORT: ${port}`);
