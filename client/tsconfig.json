@@ -1,6 +1,12 @@
 {
   "files": [],
-  "types": ["vite/client"],
+  "compilerOptions": {
+    "types": ["vite/client", "react", "react-dom"],
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
 
   "references": [
     { "path": "./tsconfig.app.json" },
